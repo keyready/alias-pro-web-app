@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+  --app-bg: var(--tg-theme-bg-color, oklch(0.97 0 0));
+  --surface: var(--tg-theme-secondary-bg-color, oklch(0.99 0 0));
+  --surface-elevated: var(--tg-theme-section-bg-color, oklch(1 0 0));
+  --text-primary: var(--tg-theme-text-color, oklch(0.2 0 0));
+  --text-secondary: var(--tg-theme-hint-color, oklch(0.55 0 0));
+  --accent: var(--tg-theme-button-color, oklch(0.62 0.19 253));
+  --accent-contrast: var(--tg-theme-button-text-color, white);
+  --danger: var(--tg-theme-destructive-text-color, oklch(0.62 0.23 25));
+  --success: oklch(0.66 0.17 145);
+  --warning: oklch(0.76 0.16 75);
+  --border: var(--tg-theme-section-separator-color, oklch(0.88 0 0));
+  color-scheme: light dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+body { margin: 0; min-height: 100vh; background: var(--app-bg); color: var(--text-primary); }
+#root { min-height: 100vh; }
+.app-shell { min-height: 100vh; padding: calc(16px + var(--tg-safe-area-inset-top, 0px)) calc(16px + var(--tg-safe-area-inset-right, 0px)) calc(20px + var(--tg-safe-area-inset-bottom, 0px)) calc(16px + var(--tg-safe-area-inset-left, 0px)); }
+.tg-surface { background: color-mix(in oklch, var(--surface) 88%, transparent); border-color: var(--border); }
+.team-dot { width: .75rem; height: .75rem; border-radius: 999px; display: inline-block; }
