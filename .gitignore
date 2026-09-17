@@ -16,8 +16,10 @@ backend/data/
 
 # Local configuration
 .env
+backend/.env
 .env.*
 !.env.example
+!backend/.env.example
 
 # Editor and OS files
 .idea/

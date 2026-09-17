@@ -3,6 +3,7 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app import config  # noqa: F401  # Load .env before application modules read settings.
 from app.api.auth import router as auth_router
 from app.api.deps import dictionary_service
 from app.api.dictionaries import router as dictionaries_router
