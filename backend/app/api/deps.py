@@ -1,15 +1,14 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 from fastapi import Depends, Header, HTTPException
 
+from app.config import get_storage_root
 from app.services.dictionary_service import DictionaryService
 from app.services.game_service import GameService
 from app.services.tokens import verify_token
 from app.storage.json_storage import JsonStorage
 
-storage = JsonStorage(Path(__file__).resolve().parents[2] / "data")
+storage = JsonStorage(get_storage_root())
 dictionary_service = DictionaryService(storage)
 game_service = GameService(storage)
 

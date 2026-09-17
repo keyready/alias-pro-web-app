@@ -1,43 +1,21 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
-    "projectSettings": {
-        "framework": "services"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "cd frontend && npm ci",
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
     },
-    "experimentalServices": {
-        "frontend": {
-            "root": "frontend",
-            "framework": "vite",
-            "buildCommand": "npm run build",
-            "outputDir": "dist"
-        },
-        "backend": {
-            "root": "backend",
-            "framework": "fastapi",
-            "runtime": "python",
-            "entrypoint": "app/main.py"
-        }
+    {
+      "source": "/health",
+      "destination": "/api/index.py"
     },
-    "rewrites": [
-        {
-            "source": "/api(/.*)?",
-            "destination": {
-                "type": "service",
-                "service": "backend"
-            }
-        },
-        {
-            "source": "/health",
-            "destination": {
-                "type": "service",
-                "service": "backend"
-            }
-        },
-        {
-            "source": "/(.*)",
-            "destination": {
-                "type": "service",
-                "service": "frontend"
-            }
-        }
-    ]
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
